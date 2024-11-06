@@ -1,4 +1,10 @@
 # Oppgave 1 - Sett opp Raspberry Pi
+---
+Vi skal starte med å installere noe på Raspberry Pi maskinene.
 
-## a) Opprette Github-konto
-Dersom du ikke allerede har en Github-konto, gå til https://github.com og opprett en.
+## a) - Last ned Raspberry Pi OS
+Raspberry PI os finner du [her](https://www.raspberrypi.com/software/).
+Du kan selv velge om du vil laste ned Raspberry Pi Imager, eller om du vil laste ned image-filen og bruke `dd` (Bare på Linux og Mac).
+Dersom du bruker `dd`, bruk `lsblk` på Linux eller `diskutil list` på Mac for å finne SD-kortet. For å skrive til kortet `xz -dc filnavn.img.xz | dd of=/dev/sdkort status=progress`
+
+## b) - Start opp Raspberry Pi
