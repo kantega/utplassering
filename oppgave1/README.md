@@ -8,7 +8,7 @@ Du kan selv velge om du vil laste ned Raspberry Pi Imager, eller om du vil laste
 Dersom du bruker `dd`, bruk `lsblk` på Linux eller `diskutil list` på Mac for å finne SD-kortet. For å skrive til kortet `xz -dc filnavn.img.xz | dd of=/dev/sdkort status=progress`
 Sett in SD-kort, start maskinen og :crossed_fingers:
 
-## b) 2 - Konfigurer Raspberry Pi
+## b) - Konfigurer Raspberry Pi
 
 - Oppdater systemet ved å kjøre følgende kommandoer:
 
