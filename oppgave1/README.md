@@ -16,7 +16,7 @@ Sett in SD-kort, start maskinen og :crossed_fingers:
 sudo nano /etc/network/interfaces.d/eth0
 ```
 
-- Legg til følgende linjer nederst i filen (erstatt X med ønskede verdier):
+- Legg til følgende linjer  i filen (Se på tavla for adresser):
 
 ```conf
 allow-hotplug eth0
@@ -38,8 +38,13 @@ sudo nano /etc/resolv.conf
 nameserver 1.1.1.1
 ```
 
+Start SSH-server ved å opprette en tom fil med navn ssh på boot partisjonen:
 
-- Endre hostname for Raspberry Pi. Kjør følgende kommando:
+```bash
+sudo touch /boot/firmware/ssh
+```
+
+- Endre hostname for Raspberry Pi (Se på tavla for hostnavn). Kjør følgende kommando:
 
 ```bash
 sudo raspi-config
@@ -64,7 +69,46 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-## c) - Installer Docker og Git
+## c) - Installer Docker
+[Docker](https://en.wikipedia.org/wiki/Docker_(software)) er en programvare for å kjøre [konteinere](https://en.wikipedia.org/wiki/Containerization_(computing)) på Linux. Konteinere er en måte å isolere applikasjoner som kjører på en server.
+Du finner også denne [installasjonsguiden](https://docs.docker.com/engine/install/raspberry-pi-os/) på Dockers dokumentasjon.
 
+- Avinstallere programvare som kan være installert fra før.
+
+```bash
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+- Legg til Dockers installasjonskilde
+
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/raspbian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/raspbian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+- Installer siste versjon av Docker
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+```
+
+- Test installasjonen
+
+```bash
+sudo docker run --rm -p 80:80 nginx:alpine-slim
+```
+
+- Åpne en nettleser, eller bruk `curl` på http://dittdomene for å teste om det fungerer. Tast `ctrl-c` for å avslutte konteineren.
 
 ---
