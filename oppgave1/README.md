@@ -10,20 +10,34 @@ Sett in SD-kort, start maskinen og :crossed_fingers:
 
 ## b) - Konfigurer Raspberry Pi
 
-- Sett en statisk IP-adresse for Raspberry Pi. Åpne konfigurasjonsfilen:
+- Sett en statisk IP-adresse for Raspberry Pi. Lag konfigurasjonsfilen:
 
 ```bash
-sudo nano /etc/dhcpcd.conf
+sudo nano /etc/network/interfaces.d/eth0
 ```
 
 - Legg til følgende linjer nederst i filen (erstatt X med ønskede verdier):
 
 ```conf
-interface eth0
-static ip_address=X.X.X.X/24
-static routers=X.X.X.X
-static domain_name_servers=X.X.X.X
+allow-hotplug eth0
+iface eth0 inet static
+address XXX.XXX.XXX.XXX
+netmask 255.255.255.0
+gateway XXX.XXX.XXX.XXX
 ```
+
+- Legg til DNS-server for navneoppslag:
+
+```bash
+sudo nano /etc/resolv.conf
+```
+
+- Legg til følgende linje nederst i filen
+
+```conf
+nameserver 1.1.1.1
+```
+
 
 - Endre hostname for Raspberry Pi. Kjør følgende kommando:
 
@@ -50,7 +64,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-## C) - Installer Docker og Git
+## c) - Installer Docker og Git
 
 
 ---
