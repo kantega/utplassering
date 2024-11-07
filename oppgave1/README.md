@@ -38,7 +38,7 @@ sudo nano /etc/resolv.conf
 nameserver 1.1.1.1
 ```
 
-Start SSH-server ved å opprette en tom fil med navn ssh på boot partisjonen:
+- Start SSH-server ved å opprette en tom fil med navn ssh på boot partisjonen:
 
 ```bash
 sudo touch /boot/firmware/ssh
