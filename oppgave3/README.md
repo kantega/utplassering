@@ -34,7 +34,7 @@ docker run -p 80:80 myapp
 
 I forrige oppgave bygde du container imaget lokalt. I denne oppgaven skal du flytte byggingen til å skje automatisk i Github med Github Actions
 
-I repoet ditt, opprett filen `.github/workflows/build.yaml`. Filen kan du bare kopiere ut fra repoet her.
+I repoet ditt, opprett filen `.github/workflows/build.yaml`. Filen kan du kopiere ut fra repoet, `build.yaml`
 
 Når du nå pusher dette til Github, vil du kunne se denne workflowen kjøre under Ditt repo -> Actions.
 
