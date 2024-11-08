@@ -8,7 +8,6 @@ På roten av Github pages repoet ditt, opprett filen `Dockerfile` med følgende 
 FROM nginx
 
 COPY ./src /usr/share/nginx/html
-
 ```
 
 Her antas det også at kildekoden din flyttes til en egen mappe med navn `src`, altså at filstrukturen din ender opp med å se slik ut:
