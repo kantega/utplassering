@@ -1,16 +1,6 @@
-# Oppgave 3 - CI/CD
+# Oppgave 3 - Containerisering + Github Actions
 
-## a) Hva er CI/CD?
-Søk litt rundt på nett, spør AI om hva CI/CD er.
-
-## b) SSH Keys
-
-Lag et nytt par med ssh-nøkler uten passord på Raspberry Pi. [Se her](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-## c) Deploy key
-Legg public ssh-nøkkel til i Github som deploy key i ditt pages prosjekt. [Se her](https://dylancastillo.co/how-to-use-github-deploy-keys/#create-a-deploy-key-on-github)
-
-## d) Containeriser din Github Pages
+## a) Containeriser din Github Pages
 
 På roten av Github pages repoet ditt, opprett filen `Dockerfile` med følgende innhold
 
@@ -41,7 +31,7 @@ docker build -t myapp .
 docker run -p 80:80 myapp
 ```
 
-## e) Bygging av container image på Github
+## b) Bygging av container image på Github
 
 I forrige oppgave bygde du container imaget lokalt. I denne oppgaven skal du flytte byggingen til å skje automatisk i Github med Github Actions
 
@@ -51,7 +41,7 @@ Når du nå pusher dette til Github, vil du kunne se denne workflowen kjøre und
 
 Når workflowen har kjørt ferdig og imaget er ferdig bygd vil du kunne finne igjen imaget ditt under Din profil -> Packages
 
-## f) Deploy container image fra Github
+## c) Deploy container image fra Github
 
 Først, opprett en API / deploy key, Din profil -> Settings -> Developer Settings -> Personal Access Tokens -> Token (Classic) -> Generate New (Classic) -> Sett navn / Expiry / read:packages
 
