@@ -60,9 +60,9 @@ Bruk Python-bibloteket [requests](https://pypi.org/project/requests/) til å gj�
 
 For API'ene som returnerer XML, kan du bruke [ET](https://docs.python.org/3/library/xml.etree.elementtree.html). Det kan være noe mer komplisert å jobbe med XML sammenliknet med JSON.
 
-Her er noen åpne API'er du kan velge mellom:
-
+Hvis du vet om noen API'er du vil integrere med, så er det fritt frem å jobbe med det, bare pass på å ta inn evt. passord/tokens for autentisering inn som environment-variabler og ikke la disse ligge i koden. Hvis du bare vil prøve deg litt frem og teste å integrere med eksterne API'er, finnes det flere åpne API'er, f.eks:
 [Ukenummer - JSON](https://ukenummer.no/json)
+
 Dette er et veldig enkelt API. Se om du klarer å endre responsen fra API'et slik at ditt API kun returnerer ukenummeret, f.eks:
 
 ```
@@ -71,9 +71,12 @@ curl http://localhost:8000/uke
 ```
 
 [Avinor - XML](https://avinor.no/konsern/tjenester/flydata/flydata-i-xml-format)
+
 Klarer du å returnere en liste med alle flyavgangene i dag fra Værnes?
 
 
 [Meteorologisk institutt - JSON og XML](https://api.met.no/)
+
 Klarer du hente været for Trondheim de neste timene?
 
+Ellers finner du en liste med andre åpne API'er på [Tadata](https://tadata.no)
