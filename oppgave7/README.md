@@ -24,7 +24,7 @@ docker build -t pyapp .
 ```
 og for å starte den:
 ```
-docker run -p 80:8000 -v /path/to/din-py-app/src:/app pyapp
+docker run -p 8000:8000 -v /path/to/din-py-app/src:/app pyapp
 ```
 
 ## a2) Setup - Native
